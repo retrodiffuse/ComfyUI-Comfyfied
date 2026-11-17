@@ -1,15 +1,16 @@
 [project]
-name = "comfyui-comfyfied"
+name = "comfyfied"
 description = "Customise the ComfyUI interface: the KickRoCSS theme plus a layout editor to hide, move and resize any UI element."
 version = "1.0.0"
 license = { file = "LICENSE" }
+classifiers = ["Operating System :: OS Independent"]
 dependencies = []
 
 [project.urls]
 Repository = "https://github.com/retrodiffuse/ComfyUI-Comfyfied"
+"Bug Tracker" = "https://github.com/retrodiffuse/ComfyUI-Comfyfied/issues"
 
-# Comfy Registry (https://registry.comfy.org)
+# Comfy Registry (https://registry.comfy.org). Bump version above to publish a new release.
 [tool.comfy]
-PublisherId = "retrodiffuse"
+PublisherId = "retr0gr4d3"
 DisplayName = "Comfyfied"
-Icon = ""
