@@ -1,0 +1,177 @@
+/*!
+ * KickRoCSS for ComfyUI, adapted from Retr0gr4d3's KickRoCSS
+ * (https://github.com/retr0gr4d3/KickRoCSS/) - Apache-2.0, Copyright 2026 Retr0gr4d3
+ * Only active while the KickRoCSS colour palette is selected (html.kickro).
+ */
+html.kickro {
+	--kr-accent: #d4000b;
+	--kr-surface: #1c1c1c;
+	--kr-text: #e8e8e8;
+	--kr-muted: #8f8f8f;
+	--kr-line: color-mix(in srgb, var(--kr-accent) 28%, transparent);
+	--kr-line-strong: color-mix(in srgb, var(--kr-accent) 55%, transparent);
+	font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+	scrollbar-color: color-mix(in srgb, var(--kr-accent) 45%, var(--kr-surface)) #191919;
+}
+
+html.kickro body,
+html.kickro button,
+html.kickro input,
+html.kickro select,
+html.kickro textarea {
+	font-family: inherit;
+}
+
+html.kickro :focus-visible {
+	outline: 2px solid var(--kr-accent) !important;
+	outline-offset: 2px;
+}
+
+html.kickro ::selection {
+	background: color-mix(in srgb, var(--kr-accent) 45%, transparent);
+}
+
+html.kickro input[type="checkbox"],
+html.kickro input[type="radio"],
+html.kickro input[type="range"] {
+	accent-color: var(--kr-accent);
+}
+
+/* LiteGraph stops painting its background colour above 150% zoom, so the canvas shows what's behind it. */
+html.kickro #graph-canvas {
+	background: #000;
+}
+
+/* Floating surfaces get the bento-card treatment. */
+html.kickro [role="dialog"],
+html.kickro [role="menu"],
+html.kickro [role="listbox"],
+html.kickro .litecontextmenu,
+html.kickro .node-search-box,
+html.kickro .actionbar {
+	border: 1px solid var(--kr-line) !important;
+	border-radius: 10px !important;
+	box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35) !important;
+}
+
+html.kickro [role="tooltip"] {
+	border: 1px solid var(--kr-line);
+	border-radius: 6px;
+}
+
+/* Sidebar: doc-sidebar gradient and accent rail. */
+html.kickro .side-tool-bar-container {
+	background: linear-gradient(180deg, color-mix(in srgb, var(--kr-accent) 5%, var(--kr-surface)), var(--kr-surface)) !important;
+	border-right: 1px solid var(--kr-line) !important;
+}
+
+html.kickro .side-bar-button:hover {
+	color: var(--kr-accent) !important;
+}
+
+html.kickro .side-bar-button-selected {
+	box-shadow: inset 3px 0 var(--kr-accent);
+}
+
+html.kickro .sidebar-content-container {
+	border-left: 3px solid color-mix(in srgb, var(--kr-accent) 45%, transparent);
+}
+
+/* Header and panels: site-header hairline. */
+html.kickro .workflow-tabs-container {
+	border-bottom: 1px solid color-mix(in srgb, var(--kr-accent) 35%, transparent);
+}
+
+html.kickro .bottom-panel {
+	border-top: 1px solid var(--kr-line);
+}
+
+html.kickro [role="tab"][aria-selected="true"] {
+	box-shadow: inset 0 -2px var(--kr-accent);
+}
+
+html.kickro [role="menuitem"]:hover,
+html.kickro [role="option"]:hover {
+	box-shadow: inset 3px 0 var(--kr-accent);
+}
+
+/* Canvas context menu: doc-sidebar-list look. */
+html.kickro .litecontextmenu .litemenu-title {
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--kr-muted);
+}
+
+html.kickro .litecontextmenu .litemenu-entry:hover:not(.disabled):not(.separator) {
+	color: var(--kr-text) !important;
+	background: color-mix(in srgb, var(--kr-accent) 10%, transparent) !important;
+	box-shadow: inset 3px 0 var(--kr-accent);
+}
+
+/* Layout edit mode. */
+.kr-edit-box {
+	position: fixed;
+	z-index: 100000;
+	pointer-events: none;
+	border: 2px dashed var(--kr-accent);
+	background: color-mix(in srgb, var(--kr-accent) 8%, transparent);
+}
+
+.kr-edit-box.kr-selected {
+	border-style: solid;
+	background: none;
+}
+
+.kr-edit-box::after {
+	content: "";
+	position: absolute;
+	right: -2px;
+	bottom: -2px;
+	width: 14px;
+	height: 14px;
+	background: var(--kr-accent);
+}
+
+.kr-edit-bar {
+	position: fixed;
+	z-index: 100001;
+	top: 0.75rem;
+	left: 50%;
+	translate: -50% 0;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	gap: 0.4rem;
+	width: max-content;
+	max-width: calc(100vw - 1.5rem);
+	padding: 0.45rem 0.6rem;
+	font-size: 0.82rem;
+	color: var(--kr-text);
+	background: color-mix(in srgb, var(--kr-accent) 12%, var(--kr-surface));
+	border: 1px solid var(--kr-line-strong);
+	border-radius: 10px;
+	box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+}
+
+.kr-edit-bar button,
+.kr-edit-bar select {
+	padding: 0.3rem 0.7rem;
+	font: inherit;
+	font-weight: 600;
+	color: var(--kr-text);
+	background: color-mix(in srgb, var(--kr-accent) 18%, var(--kr-surface));
+	border: 1px solid color-mix(in srgb, var(--kr-accent) 45%, transparent);
+	border-radius: 8px;
+	cursor: pointer;
+}
+
+.kr-edit-bar select {
+	max-width: 14rem;
+}
+
+.kr-edit-bar button:hover {
+	background: color-mix(in srgb, var(--kr-accent) 30%, var(--kr-surface));
+}

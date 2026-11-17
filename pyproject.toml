@@ -1,0 +1,15 @@
+[project]
+name = "comfyui-comfyfied"
+description = "Customise the ComfyUI interface: the KickRoCSS theme plus a layout editor to hide, move and resize any UI element."
+version = "1.0.0"
+license = { file = "LICENSE" }
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/retrodiffuse/ComfyUI-Comfyfied"
+
+# Comfy Registry (https://registry.comfy.org)
+[tool.comfy]
+PublisherId = "retrodiffuse"
+DisplayName = "Comfyfied"
+Icon = ""
